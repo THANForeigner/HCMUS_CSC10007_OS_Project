@@ -734,3 +734,19 @@ procdump (void)
       printf ("\n");
     }
 }
+
+uint64 count_proc(char names[64][16])
+{
+  uint64 total_proc = 0;
+  for(int i = 0; i < NPROC; i++)
+  {
+    acquire(&proc[i].lock);
+    if(proc[i].state!=UNUSED)
+    {
+      safestrcpy(names[total_proc], proc[i].name, 16);
+      total_proc += 1;
+    }
+    release(&proc[i].lock);
+  }
+  return total_proc;
+}
