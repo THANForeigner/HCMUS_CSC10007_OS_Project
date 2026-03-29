@@ -8,7 +8,7 @@ struct file {
   uint off;          // FD_INODE
   short major;       // FD_DEVICE
 
-  char name[16]; // name used for sysinfo listing
+  //char name[16]; // name used for sysinfo listing
 };
 
 #define major(dev)  ((dev) >> 16 & 0xFFFF)

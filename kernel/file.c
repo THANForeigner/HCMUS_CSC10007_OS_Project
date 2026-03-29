@@ -180,7 +180,7 @@ filewrite(struct file *f, uint64 addr, int n)
   return ret;
 }
 
-uint64 count_openfile(char names[64][16])
+uint64 count_openfile()
 {
   uint64 total_openfile = 0;
   acquire(&ftable.lock);
@@ -188,7 +188,6 @@ uint64 count_openfile(char names[64][16])
   {
       if(ftable.file[i].ref > 0)
       {
-        safestrcpy(names[total_openfile], ftable.file[i].name, 16);
         total_openfile += 1;
       }
   }

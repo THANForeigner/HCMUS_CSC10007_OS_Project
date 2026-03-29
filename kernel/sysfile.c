@@ -363,8 +363,6 @@ sys_open(void)
   if((omode & O_TRUNC) && ip->type == T_FILE){
     itrunc(ip);
   }
-  
-  safestrcpy(f->name, path, 16); //name for sysinfo listing
 
   iunlock(ip);
   end_op();

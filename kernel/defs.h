@@ -33,7 +33,7 @@ void            fileinit(void);
 int             fileread(struct file*, uint64, int n);
 int             filestat(struct file*, uint64 addr);
 int             filewrite(struct file*, uint64, int n);
-uint64          count_openfile(char names[64][16]); // sysinfo get opened files
+uint64          count_openfile(); // sysinfo get opened files
 // fs.c
 void            fsinit(int);
 int             dirlink(struct inode*, char*, uint);
@@ -107,7 +107,7 @@ void            yield(void);
 int             either_copyout(int user_dst, uint64 dst, void *src, uint64 len);
 int             either_copyin(void *dst, int user_src, uint64 src, uint64 len);
 void            procdump(void);
-uint64          count_proc(char names[64][16]); // sysinfo get opened processes
+uint64          count_proc(); // sysinfo get opened processes
 
 // swtch.S
 void            swtch(struct context*, struct context*);
