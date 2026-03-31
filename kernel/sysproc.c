@@ -109,8 +109,8 @@ sys_sysinfo(void)
   struct sysinfo si;
   argaddr(0, &addr);
   si.freemem = count_freemmem();
-  si.nproc = count_proc(si.proc_names);
-  si.nopenfiles = count_openfile(si.file_names);
+  si.nproc = count_proc();
+  si.nopenfiles = count_openfile();
   if (copyout(p->pagetable, addr, (char *)&si, sizeof(si)) < 0)
     return -1;
   return 0;
